@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Person",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "lastname": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "bitrhdate": {
+            "type": "string"
+        }
+
+    },
+    "required": ["name", "lastname", "phone", "bitrhdate"],
+    "additionalProperties": false
+}
+
