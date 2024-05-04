@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import json
 import argparse
-import os.path 
+import json
+import os.path
 
 from jsonschema import ValidationError, validate
 
 
 def add_person(
-        contact_list: list,
-        name: str,
-        lastname: str,
-        phone: str,
-        bitrhdate: str,
-    ):
+    contact_list: list,
+    name: str,
+    lastname: str,
+    phone: str,
+    bitrhdate: str,
+):
     """
     Add a new person
     """
@@ -28,22 +28,23 @@ def add_person(
         }
     )
 
+
 def display_contact_list(contact_list: list):
     """
     Displays contact list
     """
 
     if contact_list:
-        line = '+-{}-+-{}-+-{}-+-{}-+-{}-+'.format(
-            '-' * 4,
-            '-' * 20,
-            '-' * 20,
-            '-' * 20,
-            '-' * 10,
+        line = "+-{}-+-{}-+-{}-+-{}-+-{}-+".format(
+            "-" * 4,
+            "-" * 20,
+            "-" * 20,
+            "-" * 20,
+            "-" * 10,
         )
         print(line)
         print(
-            '| {:^4} | {:^20} | {:^20} | {:^20} | {:^10} |'.format(
+            "| {:^4} | {:^20} | {:^20} | {:^20} | {:^10} |".format(
                 "№",
                 "Name",
                 "Lastname",
@@ -52,33 +53,34 @@ def display_contact_list(contact_list: list):
             )
         )
         print(line)
-    
+
         for idx, person in enumerate(contact_list, 1):
             print(
-                '| {:^4} | {:>20} | {:>20} | {:>20} | {:>10} |'.format(
+                "| {:^4} | {:>20} | {:>20} | {:>20} | {:>10} |".format(
                     idx,
-                    person.get('name', ''),
-                    person.get('lastname', ''),
-                    person.get('phone', ''),
-                    person.get('bitrhdate', ''),
+                    person.get("name", ""),
+                    person.get("lastname", ""),
+                    person.get("phone", ""),
+                    person.get("bitrhdate", ""),
                 )
             )
             print(line)
     else:
         print("Contact list is empty.")
-        
+
+
 def select_person(contact_list: list, phone: str):
     """
     Displays person by phone numbers
     """
 
-    selected_person = ''
+    selected_person = ""
     for person in contact_list:
-        if person.get('phone') == phone:
+        if person.get("phone") == phone:
             selected_person = person
-    
+
     print(selected_person)
-    
+
 
 def save_contact_list(file_name, contact_list):
     """
@@ -115,10 +117,7 @@ def check_validation_json(file_name):
 
 def main():
     file_parser = argparse.ArgumentParser(add_help=False)
-    file_parser.add_argument(
-        "filename",
-        help="The data file name"
-    )
+    file_parser.add_argument("filename", help="The data file name")
 
     parser = argparse.ArgumentParser("Contact list")
     parser.add_argument(
@@ -131,58 +130,37 @@ def main():
 
     # Subparser for adding a new person
     add = subparsers.add_parser(
-        'add',
+        "add",
         parents=[file_parser],
-        help='Add a new worker',
+        help="Add a new worker",
+    )
+
+    add.add_argument("-n", "--name", required=True, help="The person's name")
+
+    add.add_argument(
+        "-ln", "--lastname", required=True, help="The person's lastname"
     )
 
     add.add_argument(
-        "-n",
-        "--name",
-        required=True,
-        help="The person's name"
+        "-ph", "--phone", required=True, help="The person's phone numbers"
     )
 
     add.add_argument(
-        "-ln",
-        "--lastname",
-        required=True,
-        help="The person's lastname"
-    )
-
-    add.add_argument(
-        "-ph",
-        "--phone",
-        required=True,
-        help="The person's phone numbers"
-    )
-
-    add.add_argument(
-        "-bd",
-        "--birthdate",
-        required=True,
-        help="The person's birth date"
+        "-bd", "--birthdate", required=True, help="The person's birth date"
     )
 
     # Subparer for displaying contact list
-    display = subparsers.add_parser(
-        'display',
-        parents=[file_parser],
-        help="Display contact list"
+    _ = subparsers.add_parser(
+        "display", parents=[file_parser], help="Display contact list"
     )
 
     # Subparser for selecting a person
     select = subparsers.add_parser(
-        "select",
-        parents=[file_parser],
-        help="Selet a person by phone numbers"
+        "select", parents=[file_parser], help="Selet a person by phone numbers"
     )
 
     select.add_argument(
-        "-p",
-        "--phone",
-        required=True,
-        help="The required phone numbers"
+        "-p", "--phone", required=True, help="The required phone numbers"
     )
 
     # Parse command line arguments
@@ -212,9 +190,10 @@ def main():
 
         case "select":
             select_person(contact_list, args.phone)
-        
+
     if is_dirty:
         save_contact_list(args.filename, contact_list)
+
 
 if __name__ == "__main__":
     main()
