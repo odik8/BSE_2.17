@@ -78,8 +78,9 @@ def select_person(contact_list: list, phone: str):
     for person in contact_list:
         if person.get("phone") == phone:
             selected_person = person
-
-    print(selected_person)
+            print(selected_person)
+        else:
+            print("Invalid phone numbers")
 
 
 def save_contact_list(file_name, contact_list):
@@ -132,7 +133,7 @@ def main():
     add = subparsers.add_parser(
         "add",
         parents=[file_parser],
-        help="Add a new worker",
+        help="Add a new person",
     )
 
     add.add_argument("-n", "--name", required=True, help="The person's name")

@@ -11,12 +11,11 @@
         "phone": {
             "type": "string"
         },
-        "bitrhdate": {
+        "birthdate": {
             "type": "string"
         }
 
     },
-    "required": ["name", "lastname", "phone", "bitrhdate"],
+    "required": ["name", "lastname", "phone", "birthdate"],
     "additionalProperties": false
 }
-

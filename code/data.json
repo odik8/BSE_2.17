@@ -3,12 +3,18 @@
         "name": "odissey",
         "lastname": "meltonyan",
         "phone": "123123",
-        "bitrhdate": "01.01.1999"
+        "birthdate": "01.01.1999"
     },
     {
         "name": "igor",
         "lastname": "vikhorkov",
         "phone": "777777",
-        "bitrhdate": "07.07.1977"
+        "birthdate": "07.07.1977"
+    },
+    {
+        "name": "Yaroslav",
+        "lastname": "Mindal",
+        "phone": "099099",
+        "birthdate": "12.12.2012"
     }
 ]
