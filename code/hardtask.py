@@ -9,11 +9,7 @@ from jsonschema import ValidationError, validate
 
 
 def add_person(
-    contact_list,
-    name: str,
-    lastname: str,
-    phone: str,
-    birthdate: str,
+    contact_list, name: str, lastname: str, phone: str, birthdate: str
 ):
     """
     Add a new person

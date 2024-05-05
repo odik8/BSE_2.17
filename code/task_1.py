@@ -13,7 +13,7 @@ def add_person(
     name: str,
     lastname: str,
     phone: str,
-    bitrhdate: str,
+    birthdate: str,
 ):
     """
     Add a new person
@@ -24,7 +24,7 @@ def add_person(
             "name": name,
             "lastname": lastname,
             "phone": phone,
-            "bitrhdate": bitrhdate,
+            "birthdate": birthdate,
         }
     )
 
@@ -61,7 +61,7 @@ def display_contact_list(contact_list: list):
                     person.get("name", ""),
                     person.get("lastname", ""),
                     person.get("phone", ""),
-                    person.get("bitrhdate", ""),
+                    person.get("birthdate", ""),
                 )
             )
             print(line)
@@ -79,8 +79,6 @@ def select_person(contact_list: list, phone: str):
         if person.get("phone") == phone:
             selected_person = person
             print(selected_person)
-        else:
-            print("Invalid phone numbers")
 
 
 def save_contact_list(file_name, contact_list):
@@ -109,11 +107,11 @@ def check_validation_json(file_name):
     with open("schema.json") as fs:
         schema = json.load(fs)
 
-    try:
-        validate(instance=file_name, schema=schema)
-        return True
-    except ValidationError:
-        return False
+        try:
+            validate(instance=file_name, schema=schema)
+            return True
+        except ValidationError:
+            return False
 
 
 def main():

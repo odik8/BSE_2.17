@@ -16,5 +16,17 @@
         "lastname": "Mindal",
         "phone": "099099",
         "birthdate": "12.12.2012"
+    },
+    {
+        "name": "Ivan",
+        "lastname": "Ivanov",
+        "phone": "89999999999",
+        "birthdate": "12.01.2003"
+    },
+    {
+        "name": "Petr",
+        "lastname": "Petrov",
+        "phone": "89777777777",
+        "birthdate": "19.08.2005"
     }
 ]
