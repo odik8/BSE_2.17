@@ -1,0 +1,13 @@
+name: bse_2.17
+channels:
+  - defaults
+dependencies:
+  - black=24.3.0=py312haa95532_0
+  - click=8.1.7=py312haa95532_0
+  - flake8=7.0.0=py312haa95532_0
+  - isort=5.9.3=pyhd3eb1b0_0
+  - jsonschema=4.19.2=py312haa95532_0
+  - pre-commit=3.4.0=py312haa95532_1
+  - python=3.12.3=h1d929f7_0
+  - setuptools=68.2.2=py312haa95532_0
+prefix: C:\Users\varfe\anaconda3\envs\bse_2.17
