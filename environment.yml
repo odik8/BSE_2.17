@@ -10,4 +10,3 @@ dependencies:
   - pre-commit=3.4.0=py312haa95532_1
   - python=3.12.3=h1d929f7_0
   - setuptools=68.2.2=py312haa95532_0
-prefix: C:\Users\varfe\anaconda3\envs\bse_2.17
