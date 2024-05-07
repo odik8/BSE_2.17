@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Для своего варианта лабораторной работы 2.16 необходимо
+# дополнительно реализовать
+# интерфейс командной строки (CLI).
+
+
 import argparse
 import json
 import os.path
